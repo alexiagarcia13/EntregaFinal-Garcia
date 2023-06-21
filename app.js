@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import ItemListContainer from './ItemListContainer';
-
+import ItemDetailContainer from './ItemDetailContainer';
 
 // Componente de la página de inicio
 const Home = () => (
@@ -32,6 +32,8 @@ const App = () => (
   <Router>
     <div>
     <Route exact path="/" component={ItemListContainer} />
+      <Route path="/category/:id" component={ItemListContainer} />
+      <Route path="/item/:id" component={ItemDetailContainer} />
       <nav>
         <ul>
           <li>
