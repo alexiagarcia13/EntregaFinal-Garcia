@@ -20,7 +20,7 @@ const MOCK_DATA = [
         id: 3,
         nombre: "Texas cortas",
         descripción: "Texana corta",
-        precio: 5500,
+        precio: $5500,
         img: "../img/venta/texanas/texascortas_blancas.jpeg"
     },
     {
@@ -33,20 +33,20 @@ const MOCK_DATA = [
 ]
 
 const pedirDatos = () => {
-    return new Promise ((resolve, reject) => {
+    return new Promise((resolve, reject) => {
         setTimeout(() => {
-            resolve (MOCK_DATA)         
+            resolve(MOCK_DATA)
         }, 5000)
-     })
-} 
+    })
+}
 
 const ItemListContainer = () => {
 
-    const [productos, setProcutos] = useState ([])
-    console.log(productos)  
+    const [productos, setProcutos] = useState([])
+    console.log(productos)
 
 
-    useEffect (() => {
+    useEffect(() => {
         pedirDatos()
             .then((res) => {
                 setProductos(res)
@@ -56,24 +56,25 @@ const ItemListContainer = () => {
             })
     }, [])
 
-    return(
+    return (
         <div className="list_container">
             <h2>Las mejores botas del condado</h2>
             <hr />
-
-            {
-                productos.map((prod) => (
-                    <div>
-                        <h4>{prod.nombre}</h4>
-                        <img src={prod.img} alt={prod.nombre} />
-                        <p>{prod.descripcion}</p>
-                        <p>Precio: ${prod.precio}</p>
-                ))
-           }
-
         </div>
-    )
-        
+            
+        productos.map(prod) => ()
+
+            < div >
+            {
+              {  
+                 < h4 > { prod.nombre } </h4 >
+                <img src={prod.img} alt={prod.nombre}>
+                <p>{prod.descripcion}</p>
+                <p>Precio: ${prod.precio}</p>
+            }
+             }
+        </div >
+    )   
 }
 
 export default ItemListContainer
